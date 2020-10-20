@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './styles.scss'
+import Header from './components/header'
+import FlashCard from './components/flashCard'
+import WeatherInput from './containers/WeatherInput'
+import WeatherDisplay from './containers/WeatherDisplay'
 
 function App() {
+  const [state, setState] = useState({
+    weather: null,
+  })
+
+  const setWeather = (info) => {
+    setState({
+      ...state,
+      weather: info,
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container is-max-desktop'>
+      <Header title={`Today's Weather`} />
+      <FlashCard weather={state.weather}/>
+      <WeatherInput setWeather={setWeather}/>
+      <WeatherDisplay weather={state.weather}/>
     </div>
   );
 }

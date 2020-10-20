@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+@import "~bulma/bulma.sass";
+
+.field {
+  padding: 0 20px 0 0;
+}
+
+.weather-input {
+  margin-top: 40px;
+}
+
+.weather-cloud, .weather-rain, .weather-clear, .weather-default {
+  background-image: url('./assets/icons.png');
+  background-repeat: no-repeat;
+  height: 150px;
+}
+
+.weather-cloud {
+  background-position: -150px -750px;
+}
+
+.weather-rain {
+  background-position: -600px -750px;
+}
+
+.weather-clear {
+  background-position: -150px -10px;
+}
+
+.weather-default {
+  background-position: -300px -1050px;
+}
